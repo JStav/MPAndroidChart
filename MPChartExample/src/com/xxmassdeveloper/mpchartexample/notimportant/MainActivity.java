@@ -28,6 +28,7 @@ import com.xxmassdeveloper.mpchartexample.FilledLineActivity;
 import com.xxmassdeveloper.mpchartexample.HalfPieChartActivity;
 import com.xxmassdeveloper.mpchartexample.HorizontalBarChartActivity;
 import com.xxmassdeveloper.mpchartexample.InvertedLineChartActivity;
+import com.xxmassdeveloper.mpchartexample.LimitLineActivity;
 import com.xxmassdeveloper.mpchartexample.LineChartActivity1;
 import com.xxmassdeveloper.mpchartexample.LineChartActivity2;
 import com.xxmassdeveloper.mpchartexample.LineChartActivityColored;
@@ -147,6 +148,9 @@ public class MainActivity extends Activity implements OnItemClickListener {
         objects.add(new ContentItem(
                 "Half PieChart",
                 "This demonstrates how to create a 180 degree PieChart."));
+        objects.add(new ContentItem(
+            "Limit Line Example",
+            "Testing limit line labels."));
 
         MyAdapter adapter = new MyAdapter(this, objects);
 
@@ -288,6 +292,10 @@ public class MainActivity extends Activity implements OnItemClickListener {
                 break;
             case 31:
                 i = new Intent(this, HalfPieChartActivity.class);
+                startActivity(i);
+                break;
+            case 32:
+                i = new Intent(this, LimitLineActivity.class);
                 startActivity(i);
                 break;
 
