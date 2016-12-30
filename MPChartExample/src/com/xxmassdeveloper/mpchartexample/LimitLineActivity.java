@@ -21,9 +21,9 @@ public class LimitLineActivity extends DemoBase {
     LineChart chart = (LineChart) findViewById(R.id.limit_line_chart);
 
     List<Entry> entries = new ArrayList<>();
-    List<LimitLine> limitLines = new ArrayList<>();
 
     for(int i = 0; i < 10; i++) {
+
       Entry entry = new Entry(i, new Random().nextInt(9));
       entries.add(entry);
 
@@ -31,19 +31,17 @@ public class LimitLineActivity extends DemoBase {
         LimitLine line = new LimitLine(i, String.valueOf(i));
         line.setLabelPosition(LimitLine.LimitLabelPosition.CENTER_BOTTOM);
         line.setTextSize(16f);
-        limitLines.add(line);
+        chart.getXAxis().addLimitLine(line);
       }
+
     }
 
     LineDataSet set = new LineDataSet(entries, "");
     set.setMode(LineDataSet.Mode.CUBIC_BEZIER);
+    set.setLineWidth(2f);
 
     LineData data = new LineData(set);
     data.setDrawValues(false);
-
-    for(LimitLine l : limitLines) {
-      chart.getXAxis().addLimitLine(l);
-    }
 
     chart.getAxisRight().setEnabled(false);
     chart.getXAxis().setDrawLabels(false);
